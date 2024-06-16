@@ -1,3 +1,6 @@
+import pytest
+
+
 def one_more(x):
     return x + 1
 
@@ -7,14 +10,16 @@ def get_sort_list(string):
     return new_list
 
 
-def test_correct():
-    print('Правильный тест')
-    assert one_more(4) == 5
-
-
-def test_fail():
-    print('Неправильный тест')
-    assert one_more(3) == 5
+@pytest.mark.parametrize(
+    'input_arg, expected_result',
+    [
+        (4, 5),
+        pytest.param(3, 5, marks=pytest.mark.xfail)
+    ],
+    ids=['First parameter', 'Second parameter']
+)
+def test_one_more(input_arg, expected_result):
+    assert one_more(input_arg) == expected_result
 
 
 def test_sort():
