@@ -8,10 +8,12 @@ def get_sort_list(string):
 
 
 def test_correct():
+    print('Правильный тест')
     assert one_more(4) == 5
 
 
 def test_fail():
+    print('Неправильный тест')
     assert one_more(3) == 5
 
 
