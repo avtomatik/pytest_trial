@@ -1,3 +1,4 @@
+from time import sleep
 import pytest
 
 
@@ -28,7 +29,9 @@ def test_sort():
     assert result == ['Даша', 'Маша', 'Саша', 'Яша']
 
 
+@pytest.mark.slow
 def test_type():
     """Тестируем тип данных, возвращаемых из get_sort_list()."""
+    sleep(3)
     result = get_sort_list('Яша, Саша, Маша, Даша')
     assert isinstance(result, int)
