@@ -1,7 +1,6 @@
-from engine_class import Engine
-
-
 import pytest
+
+from engine_class import Engine
 
 
 @pytest.fixture(scope='session')
